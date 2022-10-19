@@ -38,9 +38,9 @@ public class TimeBar : MonoBehaviour
             {
                 GameStart = true;
             }
-            if (modeSupervisor.modeNum == 1 || modeSupervisor.modeNum == 3)
+            if (modeSupervisor.modeNum == 1 )
             {
-                if (!timesUp)
+                if (GameStart && !timesUp)
                 {
                     if (inputController.beenTouch)
                     {
@@ -54,7 +54,7 @@ public class TimeBar : MonoBehaviour
                         }
 
                     }
-                    if (GameStart && !inputController.playerBeenHit)
+                    if (!inputController.playerBeenHit)
                     {
                         Countdown();
                     }
@@ -72,7 +72,7 @@ public class TimeBar : MonoBehaviour
                     {
                         timesUp = true;
                     }
-                    else if (!inputController.playerBeenHit) //否則繼續減少時間條量
+                    else //否則繼續減少時間條量
                     {
                         Countdown();
                     }
@@ -116,6 +116,14 @@ public class TimeBar : MonoBehaviour
     {
         GameStart = false;
         timesUp = false;
-        time = 1;
+        if (modeSupervisor.modeNum == 1) 
+        {
+            time = 1f;
+        }
+        else 
+        {
+            time = 0.6f;
+        }
+        
     }
 }

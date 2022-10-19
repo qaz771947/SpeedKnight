@@ -35,7 +35,7 @@ public class UIManager : MonoBehaviour
         {
             StartCoroutine(GetScript());
         }
-        else 
+        else
         {
             if (playerController.isDead && !hasDoneScore)
             {
@@ -55,7 +55,7 @@ public class UIManager : MonoBehaviour
 
             }
         }
-        
+
 
     }
 
@@ -86,14 +86,14 @@ public class UIManager : MonoBehaviour
         playerController = FindObjectOfType<PlayerController>();
     }
 
-    private void ResetTarget()
+    public void ResetTarget()
     {
-        if (targetSpawn.transform.GetChild(0).gameObject.transform.GetChild(0).tag != "O") 
+        if (targetSpawn.transform.GetChild(0).gameObject.transform.GetChild(0).tag != "O")
         {
             Destroy(targetSpawn.transform.GetChild(0).gameObject.transform.GetChild(0).transform.GetChild(0).gameObject);
             targetSpawn.transform.GetChild(0).gameObject.transform.GetChild(0).tag = "O";
         }
-        
+
     }
 
     public void Leave()
